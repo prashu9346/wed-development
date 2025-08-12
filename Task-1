@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApexPlanet Web Dev Task 1</title>
+  
+  <!-- Embedded CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f6fc;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #005f99;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    nav {
+      background-color: #d9e9f6;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      color: #005f99;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #007acc;
+      background-color: #eef9ff;
+      border-radius: 6px;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Basics of Web Development</h1>
+    <p>Task 1 - HTML, CSS & JavaScript | ApexPlanet Software Pvt Ltd</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#topics">Topics</a></li>
+      <li><a href="#image">Image</a></li>
+      <li><a href="#button">Try Button</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About This Task</h2>
+      <p>This webpage is created as part of the ApexPlanet internship program. It demonstrates a basic webpage using HTML for structure, CSS for styling, and JavaScript for interactivity.</p>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics">
+      <h2>Topics Covered</h2>
+      <ol>
+        <li>HTML Elements and Structure</li>
+        <li>CSS Styling and Layout</li>
+        <li>JavaScript Interactivity</li>
+      </ol>
+    </section>
+
+    <!-- Image Section -->
+    <section id="image">
+      <h2>Sample Image</h2>
+      <img src="https://via.placeholder.com/800x350.png?text=Web+Development+Task+1" alt="Sample Placeholder">
+      <p>This is a sample image included to demonstrate media elements in HTML.</p>
+    </section>
+
+    <!-- JavaScript Button Section -->
+    <section id="button">
+      <h2>Interactive Button</h2>
+      <p>Click the button below to trigger an alert and update content dynamically:</p>
+      <button onclick="showMessage()">Click Me</button>
+
+      <div class="output" id="outputBox"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ApexPlanet Internship · Task 1 Completed</p>
+  </footer>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    function showMessage() {
+      alert("🎉 You clicked the button! Welcome to Web Development!");
+      
+      // Show text below the button
+      const output = document.getElementById("outputBox");
+      output.style.display = "block";
+      output.innerHTML = "<strong>Success!</strong> JavaScript is working perfectly. Keep learning!";
+    }
+  </script>
+</body>
+</html>
