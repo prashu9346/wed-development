@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Project Implementation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: teal;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h2 {
+      color: teal;
+    }
+
+    /* To-Do List */
+    #taskList li {
+      cursor: pointer;
+    }
+
+    /* Product Listing */
+    label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portfolio Section -->
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="#todo">To-Do</a>
+      <a href="#products">Products</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a web developer passionate about building beautiful and functional websites.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Portfolio Website</li>
+      <li>To-Do App with Local Storage</li>
+      <li>Product Page with Filters and Sorting</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: example@mail.com</p>
+  </section>
+
+  <!-- To-Do List Section -->
+  <section id="todo">
+    <h2>To-Do List</h2>
+    <input type="text" id="task" placeholder="New Task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- Product List Section -->
+  <section id="products">
+    <h2>Product Listing</h2>
+    <label>Filter by Category:
+      <select id="categoryFilter" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+      </select>
+    </label>
+
+    <label>Sort by Price:
+      <select id="priceSort" onchange="filterProducts()">
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+    </label>
+
+    <ul id="productList"></ul>
+  </section>
+
+  <script>
+    // To-Do List Logic
+    const taskList = document.getElementById('taskList');
+
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      taskList.innerHTML = '';
+      tasks.forEach((task, i) => {
+        const li = document.createElement('li');
+        li.textContent = task;
+        li.onclick = () => {
+          tasks.splice(i, 1);
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+          loadTasks();
+        };
+        taskList.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const taskInput = document.getElementById('task');
+      const task = taskInput.value.trim();
+      if (task) {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        taskInput.value = '';
+        loadTasks();
+      }
+    }
+
+    lo
