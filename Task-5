@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    /* Minified CSS for performance */
+    body{margin:0;font-family:sans-serif;line-height:1.6;background:#f9f9f9;}
+    header,footer{background:#222;color:#fff;text-align:center;padding:1rem;}
+    nav{display:flex;justify-content:center;gap:1rem;background:#333;padding:.5rem;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;}
+    .container{padding:2rem;max-width:960px;margin:auto;}
+    .project{background:#fff;margin:1rem 0;padding:1rem;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+    img{max-width:100%;height:auto;display:block;margin:1rem 0;}
+    @media (max-width:768px){
+      nav{flex-direction:column;align-items:center;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Swathi</h1>
+    <p>Frontend Developer | JavaScript | HTML | CSS</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Swathi, a passionate web developer focused on building fast and responsive websites.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>E-commerce Site</h3>
+        <p>Built with HTML, CSS, and JavaScript with cart and checkout features.</p>
+        <img loading="lazy" src="https://via.placeholder.com/600x300" alt="E-commerce screenshot" />
+      </div>
+      <div class="project">
+        <h3>Personal Blog</h3>
+        <p>Minimal blog layout with responsive design and local storage for saving posts.</p>
+        <img loading="lazy" src="https://via.placeholder.com/600x300" alt="Blog screenshot" />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form onsubmit="return submitForm(event)">
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <input type="email" id="email" placeholder="Your Email" required><br><br>
+        <textarea id="message" placeholder="Your Message" required></textarea><br><br>
+        <button type="submit">Send</button>
+      </form>
+      <p id="responseMsg" style="color: green;"></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Swathi | Portfolio Project</p>
+  </footer>
+
+  <script>
+    // Form Submission (simulate success)
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('responseMsg').textContent = 'Message sent successfully!';
+      return false;
+    }
+
+    // Browser Compatibility Check
+    window.addEventListener('load', () => {
+      const isCompatible = 'querySelector' in document && 'addEventListener' in window;
+      if (!isCompatible) {
+        alert('Your browser may not fully support this application. Please use a modern browser.');
+      }
+    });
+  </script>
+
+</body>
+</html>
